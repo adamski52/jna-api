@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     schema = mongoose.Schema({
-        repo: String,
+        name: String,
         hearts: Number
     });
 
@@ -14,4 +14,4 @@ schema.methods.heart = function() {
     });
 };
 
-module.exports = mongoose.model("Heart", schema);
+module.exports = mongoose.model("Repo", schema);

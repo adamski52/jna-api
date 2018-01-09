@@ -1,8 +1,9 @@
 .DS_Store
 dist
-db
+db/*
 node_modules
 npm-debug.log
 .idea
 .env
 *.tgz
+.nyc_output

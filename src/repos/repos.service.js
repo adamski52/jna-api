@@ -7,22 +7,19 @@ function init() {
         name: {
             type: String,
             required: true,
-            validate: {
+            validate: [{
                 isAsync: true,
                 validator: function(value, callback) {
-                    console.log("ask me about", value);
-                    this.model("Repo").count({
+                    ValidationService.isUnique(Model, {
                         name: value
-                    }, function (err, count) {
-                        console.log("COUNT", count);
-                        if (err) {
-                            return callback(false, "oh no");
-                        }
-
-                        callback(!count, "oh no 2");
-                    });
-                }
-            }
+                    }, callback);
+                },
+                msg: "Name must be unique"
+            }, {
+                isAsync: true,
+                validator: ValidationService.isNull,
+                msg: "Name must not be blank"
+            }]
         },
         hearts: {
             type: Number,
@@ -46,8 +43,7 @@ function select(repoName, callback) {
 
 function create(repoName, callback) {
     Model.create({
-        name: repoName,
-        hearts: 1
+        name: repoName
     }, callback);
 }
 

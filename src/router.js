@@ -1,6 +1,6 @@
 var express = require("express"),
     router = express.Router(),
-    repos = require("./routes/repos.routes");
+    repos = require("./repos/repos.routes");
 
 router.use("/repos", repos.routes);
 

@@ -118,7 +118,7 @@ describe("Repos service", function() {
         });
     });
 
-    describe("liking", function() {
+    describe("hearting", function() {
         it("should error if selection errors", function(done) {
             var stub = sinon.stub(ReposService.Model, "findOne").callsFake(function(selector, callback) {
                 callback(error);

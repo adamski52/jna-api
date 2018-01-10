@@ -9,5 +9,15 @@ module.exports.isUnique = function(model, selector, callback) {
 };
 
 module.exports.isNull = function(value, callback) {
-    callback(!!value);
+    if(!value) {
+        callback(true);
+        return;
+    }
+
+    if(typeof value === "object" && Object.keys(value).length <= 0) {
+        callback(true);
+        return;
+    }
+
+    callback(!value);
 };

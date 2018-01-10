@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "dev": "concurrently \"mongod --dbpath=db\" \"nodemon src/index.js\"",
     "test": "mocha --require test/config test --recursive",
-    "build": "webpack",
+    "build": "node scripts/build.js",
     "deploy": "node scripts/deploy.js",
     "bounce": "node scripts/bounce.js"
   },
@@ -15,8 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.2",
-    "clean-webpack-plugin": "^0.1.17",
     "express": "^4.16.2",
+    "fs-extra": "^5.0.0",
     "mocha": "^4.1.0",
     "mongoose": "^4.13.9",
     "nyc": "^11.4.1",
@@ -25,9 +25,7 @@
     "sinon-chai": "^2.14.0",
     "ssh2": "^0.5.5",
     "supertest": "^3.0.0",
-    "tar": "^4.2.0",
-    "webpack": "^3.10.0",
-    "whatwg-fetch": "^2.0.3"
+    "tar": "^4.2.0"
   },
   "dependencies": {}
 }

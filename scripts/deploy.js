@@ -1,5 +1,4 @@
-const path = require("path"),
-      tar = require("tar"),
+const tar = require("tar"),
       utils = require("./utils"),
       ScpClient = require("scp2").Client,
       date = new Date(),

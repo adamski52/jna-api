@@ -4,6 +4,7 @@ var ReposService = require("./repos.service"),
 function post(req, res) {
     ReposService.heart(req.params.repoName, function(err, result) {
         ResponseService.buildResponse(err, result, function(data) {
+            res.set("Access-Control-Allow-Origin", "*");
             res.status(data.status).json(data);
         });
     });
@@ -12,6 +13,7 @@ function post(req, res) {
 function get(req, res) {
     ReposService.select(req.params.repoName, function(err, result) {
         ResponseService.buildResponse(err, result, function(data) {
+            res.set("Access-Control-Allow-Origin", "*");
             res.status(data.status).json(data);
         });
     });

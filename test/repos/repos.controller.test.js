@@ -9,6 +9,7 @@ var ReposController,
     response,
     repoName,
     jsonSpy,
+    setSpy,
     statusSpy,
     error,
     res;
@@ -47,7 +48,10 @@ describe("repos controller", function() {
             };
         });
 
+        setSpy = sinon.spy();
+
         res = {
+            set: setSpy,
             status: statusSpy
         };
 

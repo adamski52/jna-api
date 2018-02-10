@@ -4,20 +4,20 @@ module.exports.isUnique = function(model, selector, callback) {
             return callback(false);
         }
 
-        callback(!count);
+        callback(count < 2);
     });
 };
 
-module.exports.isNull = function(value, callback) {
+module.exports.isNotNull = function(value, callback) {
     if(!value) {
-        callback(true);
+        callback(false);
         return;
     }
 
     if(typeof value === "object" && Object.keys(value).length <= 0) {
-        callback(true);
+        callback(false);
         return;
     }
 
-    callback(!value);
+    callback(!!value);
 };

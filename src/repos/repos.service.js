@@ -17,7 +17,7 @@ function init() {
                 msg: "Name must be unique"
             }, {
                 isAsync: true,
-                validator: ValidationService.isNull,
+                validator: ValidationService.isNotNull,
                 msg: "Name must not be blank"
             }]
         },

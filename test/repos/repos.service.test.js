@@ -57,7 +57,7 @@ describe("Repos service", function() {
             create(name);
 
             sinon.stub(ReposService.Model, "count").callsFake(function(props, callback) {
-                callback(undefined, 1);
+                callback(undefined, 2);
             });
 
             Repos[1].validate(function (err) {

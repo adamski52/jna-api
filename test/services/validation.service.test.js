@@ -68,66 +68,66 @@ describe("validation service", function() {
         });
     });
 
-    describe("is null validator", function() {
+    describe("is not null validator", function() {
         it("should return true if value is null", function() {
-            ValidationService.isNull(null, function(result) {
-                expect(result).to.equal(true);
+            ValidationService.isNotNull(null, function(result) {
+                expect(result).to.equal(false);
             });
         });
 
         it("should return true if value is undefined", function() {
-            ValidationService.isNull(null, function(result) {
-                expect(result).to.equal(true);
+            ValidationService.isNotNull(null, function(result) {
+                expect(result).to.equal(false);
             });
         });
 
         it("should return true if value is false", function() {
-            ValidationService.isNull(false, function(result) {
-                expect(result).to.equal(true);
+            ValidationService.isNotNull(false, function(result) {
+                expect(result).to.equal(false);
             });
         });
 
         it("should return true if value is a blank string", function() {
-            ValidationService.isNull('', function(result) {
-                expect(result).to.equal(true);
+            ValidationService.isNotNull('', function(result) {
+                expect(result).to.equal(false);
             });
         });
 
         it("should return true if value is an object with no keys", function() {
-            ValidationService.isNull({}, function(result) {
-                expect(result).to.equal(true);
+            ValidationService.isNotNull({}, function(result) {
+                expect(result).to.equal(false);
             });
         });
 
         it("should return true if value is a blank array", function() {
-            ValidationService.isNull([], function(result) {
-                expect(result).to.equal(true);
+            ValidationService.isNotNull([], function(result) {
+                expect(result).to.equal(false);
             });
         });
 
         it("should return false if value is a non-blank string", function() {
-            ValidationService.isNull("lol", function(result) {
-                expect(result).to.equal(false);
+            ValidationService.isNotNull("lol", function(result) {
+                expect(result).to.equal(true);
             });
         });
 
         it("should return false if value is a number", function() {
-            ValidationService.isNull(123, function(result) {
-                expect(result).to.equal(false);
+            ValidationService.isNotNull(123, function(result) {
+                expect(result).to.equal(true);
             });
         });
 
         it("should return false if value is a an object with keys", function() {
-            ValidationService.isNull({
+            ValidationService.isNotNull({
                 lol: "wat"
             }, function(result) {
-                expect(result).to.equal(false);
+                expect(result).to.equal(true);
             });
         });
 
         it("should return false if value is an array with values", function() {
-            ValidationService.isNull(["wat"], function(result) {
-                expect(result).to.equal(false);
+            ValidationService.isNotNull(["wat"], function(result) {
+                expect(result).to.equal(true);
             });
         });
     });

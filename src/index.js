@@ -12,17 +12,10 @@ var express = require("express"),
         },
         changeOrigin: true,
         onProxyReq: function(proxyReq, req, res) {
-            console.log("TOKEN: ", process.env.GITHUB_TOKEN);
+            proxyReq.setHeader("Accept", "application/vnd.github.v3+json");
             proxyReq.setHeader("Authorization", "token " + process.env.GITHUB_TOKEN);
             proxyReq.setHeader("User-Agent", "maintaincomposure.com");
             proxyReq.setHeader("Content-Type", "application/json");
-
-            console.log("proxyReq:");
-            console.log(proxyReq);
-        },
-        onProxyRes: function(proxyRes, req, res) {
-            console.log("proxyRes:");
-            console.log(proxyRes);
         }
     });
 

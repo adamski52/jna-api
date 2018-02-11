@@ -12,6 +12,7 @@ var express = require("express"),
         },
         changeOrigin: true,
         onProxyReq: function(proxyReq, req, res) {
+            console.log("TOKEN: ", process.env.GITHUB_TOKEN);
             proxyReq.setHeader("Authentication", "token " + process.env.GITHUB_TOKEN);
             proxyReq.setHeader("User-Agent", "maintaincomposure.com");
             proxyReq.setHeader("Content-Type", "application/json");
